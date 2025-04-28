@@ -119,5 +119,6 @@ const API_KEY = '6fcb6a54a1cf6dcf2802fc1d9af8b3c8';
       displayList(tvShows, 'tvshows-list');
       displayList(anime, 'anime-list');
     }
+<meta name="monetag" content="8a578edf866d90d9932f9a32b7d8622e">
 
     init();
