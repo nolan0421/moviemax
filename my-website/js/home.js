@@ -119,6 +119,31 @@ const API_KEY = '6fcb6a54a1cf6dcf2802fc1d9af8b3c8';
       displayList(tvShows, 'tvshows-list');
       displayList(anime, 'anime-list');
     }
+<!--JS Code for Movie Categories-->
+    const API_KEY = 'YOUR_TMDB_API_KEY'; // replace with your TMDB API key
+const BASE_URL = 'https://api.themoviedb.org/3';
+
+function loadCategory(genreId) {
+  fetch(`${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genreId}`)
+    .then(response => response.json())
+    .then(data => {
+      displayMovies(data.results);
+    });
+}
+
+function displayMovies(movies) {
+  const container = document.getElementById('movies');
+  container.innerHTML = '';
+  movies.forEach(movie => {
+    const div = document.createElement('div');
+    div.className = 'movie';
+    div.innerHTML = `
+      <img src="https://image.tmdb.org/t/p/w200${movie.poster_path}" alt="${movie.title}" />
+      <p>${movie.title}</p>
+    `;
+    container.appendChild(div);
+  });
+}
 
 
     init();
