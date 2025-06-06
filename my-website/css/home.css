@@ -283,5 +283,21 @@
     flex-direction: row;
     gap: 8px;
   }
+<!--CSS Movie Categories-->
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+#movies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.movie {
+  width: 200px;
+}
+.movie img {
+  width: 100%;
+}
 
 }
