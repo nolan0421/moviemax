@@ -120,10 +120,13 @@ const API_KEY = '6fcb6a54a1cf6dcf2802fc1d9af8b3c8';
       displayList(anime, 'anime-list');
     }
 // JS Code for Movie Categories
-const API_KEY = '6fcb6a54a1cf6dcf2802fc1d9af8b3c8';
-    const BASE_URL = 'https://api.themoviedb.org/3';
-    const IMG_URL = 'https://image.tmdb.org/t/p/original';
-    let currentItem;
+const url = 'https://api.themoviedb.org/3/movie/changes?page=5';
+const options = {method: 'GET', headers: {accept: 'application/json'}};
+
+fetch(url, options)
+  .then(res => res.json())
+  .then(json => console.log(json))
+  .catch(err => console.error(err));
 // 1. Start
 function loadCategory(genreId) {
   fetch(`${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genreId}`)
