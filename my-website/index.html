@@ -39,6 +39,27 @@
     <img src="logo.png" alt="Company Logo" class="logo">
   </header>
 
+<!--Categories HTML Code-->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movie Categories</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Movie Categories</h1>
+  <nav>
+    <button onclick="loadCategory('28')">Action</button>
+    <button onclick="loadCategory('35')">Comedy</button>
+    <button onclick="loadCategory('18')">Drama</button>
+  </nav>
+  <div id="movies"></div>
+  <script src="script.js"></script>
+</body>
+</html>
+ 
 <!--Background-->
   <style>
     body {
@@ -81,8 +102,6 @@
   </style>
 </head>
 <body>
-
-
   
   <div class="banner" id="banner">
     <h1 id="banner-title"></h1>
