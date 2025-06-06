@@ -120,8 +120,6 @@ const API_KEY = '6fcb6a54a1cf6dcf2802fc1d9af8b3c8';
       displayList(anime, 'anime-list');
     }
 // JS Code for Movie Categories
-    const API_KEY = '6fcb6a54a1cf6dcf2802fc1d9af8b3c8'; // replace with your TMDB API key
-const BASE_URL = 'https://api.themoviedb.org/3';
 
 function loadCategory(genreId) {
   fetch(`${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genreId}`)
