@@ -119,7 +119,7 @@ const API_KEY = '6fcb6a54a1cf6dcf2802fc1d9af8b3c8';
       displayList(tvShows, 'tvshows-list');
       displayList(anime, 'anime-list');
     }
-<!--JS Code for Movie Categories-->
+// JS Code for Movie Categories
     const API_KEY = 'YOUR_TMDB_API_KEY'; // replace with your TMDB API key
 const BASE_URL = 'https://api.themoviedb.org/3';
 
