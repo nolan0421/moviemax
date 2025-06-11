@@ -12,8 +12,8 @@ const API_KEY = '6fcb6a54a1cf6dcf2802fc1d9af8b3c8';
     async function fetchTrendingAnime() {
   let allResults = [];
 
-  // Fetch from multiple pages to get more anime (max 3 pages for demo)
-  for (let page = 1; page <= 10; page++) {
+  // Fetch from multiple pages to get more anime (max 15 pages for demo)
+  for (let page = 1; page <= 15; page++) {
     const res = await fetch(`${BASE_URL}/trending/tv/week?api_key=${API_KEY}&page=${page}`);
     const data = await res.json();
     const filtered = data.results.filter(item =>
