@@ -25,7 +25,7 @@ const API_KEY = '6fcb6a54a1cf6dcf2802fc1d9af8b3c8';
   return allResults;
 }
 
-    async function fetchTrendingMovies() {
+    async function fetchTrendingmovies() {
   let allResults = [];
 
   // Fetch from multiple pages to get more anime (max 15 pages for demo)
