@@ -143,21 +143,7 @@ function displayMovies(movies) {
     container.appendChild(div);
   });
 }
-// JS code for linking Movie Category to API
-const categoryList = document.getElementById("categoryList");
 
-fetch("https://api.themoviedb.org/3/genre/movie/list?api_key=YOUR_API_KEY&language=en-US")
-  .then(response => response.json())
-  .then(data => {
-    data.genres.forEach(genre => {
-      const li = document.createElement("li");
-      li.textContent = genre.name;
-      categoryList.appendChild(li);
-    });
-  })
-  .catch(error => {
-    console.error("Failed to load movie categories:", error);
-  });
 
 
     init();
