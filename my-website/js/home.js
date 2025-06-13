@@ -116,14 +116,10 @@ async function init() {
   displayList(movies, 'movies-list');
   displayList(tvShows, 'tvshows-list');
   displayList(anime, 'anime-list');
-}
 
-function loadCategory(genreId) {
-  fetch(`${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genreId}`)
-    .then(response => response.json())
-    .then(data => {
-      displayCategoryMovies(data.results);
-      function loadCategory(category) {
+  
+  
+  function loadCategory(category) {
   if (category === 'tv') {
     fetch(`${BASE_URL}/discover/tv?api_key=${API_KEY}`)
       .then(res => res.json())
@@ -132,10 +128,9 @@ function loadCategory(genreId) {
           ...show,
           media_type: "tv"
         }));
-        displayMovies(tvShows);
+        displayCategoryMovies(tvShows);
       });
   } else if (category === 'anime') {
-    // Anime = TV shows with Japanese language & genre ID 16
     fetch(`${BASE_URL}/discover/tv?api_key=${API_KEY}&with_genres=16&with_original_language=ja`)
       .then(res => res.json())
       .then(data => {
@@ -143,10 +138,9 @@ function loadCategory(genreId) {
           ...anime,
           media_type: "tv"
         }));
-        displayMovies(anime);
+        displayCategoryMovies(anime);
       });
   } else {
-    // Default is movie genre by ID
     fetch(`${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${category}`)
       .then(res => res.json())
       .then(data => {
@@ -154,13 +148,11 @@ function loadCategory(genreId) {
           ...movie,
           media_type: "movie"
         }));
-        displayMovies(movies);
+        displayCategoryMovies(movies);
       });
   }
 }
 
-    });
-}
 
 function displayCategoryMovies(movies) {
   const container = document.getElementById('movies');
