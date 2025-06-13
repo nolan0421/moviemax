@@ -11,12 +11,16 @@ async function fetchTrending(type) {
 
 async function fetchTrendingAnime() {
   let allResults = [];
+
   for (let page = 1; page <= 15; page++) {
     const res = await fetch(`${BASE_URL}/trending/tv/week?api_key=${API_KEY}&page=${page}`);
     const data = await res.json();
-    const filtered = data.results.filter(item => item.original_language === 'ja' && item.genre_ids.includes(16));
+    const filtered = data.results.filter(item =>
+      item.original_language === 'ja' && item.genre_ids.includes(16)
+    );
     allResults = allResults.concat(filtered);
   }
+
   return allResults;
 }
 
@@ -118,20 +122,27 @@ function loadCategory(genreId) {
   fetch(`${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genreId}`)
     .then(response => response.json())
     .then(data => {
-      displayMovies(data.results);
+      displayCategoryMovies(data.results);
     });
 }
 
-function displayMovies(movies) {
+function displayCategoryMovies(movies) {
   const container = document.getElementById('movies');
   container.innerHTML = '';
+  container.style.display = 'grid';
+  container.style.gridTemplateColumns = 'repeat(auto-fit, minmax(150px, 1fr))';
+  container.style.gap = '20px';
+
   movies.forEach(movie => {
+    if (!movie.poster_path) return;
     const div = document.createElement('div');
     div.className = 'movie';
+    div.style.cursor = 'pointer';
     div.innerHTML = `
       <img src="https://image.tmdb.org/t/p/w200${movie.poster_path}" alt="${movie.title}" />
       <p>${movie.title}</p>
     `;
+    div.onclick = () => showDetails(movie);
     container.appendChild(div);
   });
 }
