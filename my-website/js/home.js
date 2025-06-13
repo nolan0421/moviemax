@@ -123,6 +123,42 @@ function loadCategory(genreId) {
     .then(response => response.json())
     .then(data => {
       displayCategoryMovies(data.results);
+      function loadCategory(category) {
+  if (category === 'tv') {
+    fetch(`${BASE_URL}/discover/tv?api_key=${API_KEY}`)
+      .then(res => res.json())
+      .then(data => {
+        const tvShows = data.results.map(show => ({
+          ...show,
+          media_type: "tv"
+        }));
+        displayMovies(tvShows);
+      });
+  } else if (category === 'anime') {
+    // Anime = TV shows with Japanese language & genre ID 16
+    fetch(`${BASE_URL}/discover/tv?api_key=${API_KEY}&with_genres=16&with_original_language=ja`)
+      .then(res => res.json())
+      .then(data => {
+        const anime = data.results.map(anime => ({
+          ...anime,
+          media_type: "tv"
+        }));
+        displayMovies(anime);
+      });
+  } else {
+    // Default is movie genre by ID
+    fetch(`${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${category}`)
+      .then(res => res.json())
+      .then(data => {
+        const movies = data.results.map(movie => ({
+          ...movie,
+          media_type: "movie"
+        }));
+        displayMovies(movies);
+      });
+  }
+}
+
     });
 }
 
