@@ -1,112 +1,90 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
   <title>MOVIEMAX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- CSS & Fonts -->
   <link rel="stylesheet" href="css/home.css">
   <link rel="preload" href="css/home.css" as="style">
   <link rel="preload" href="js/home.js" as="script">
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <script defer src="js/home.js"></script>
-  <script type="text/javascript" data-cfasync="false">
-/*<![CDATA[/* */
-(function(){var t=window,d="db5d6f9a874682acc869ba0c9f7e5782",n=[["siteId",529*207+844*694+89+4500410],["minBid",0],["popundersPerIP","0"],["delayBetween",0],["default",false],["defaultPerDay",0],["topmostLayer","auto"]],c=["d3d3LmJsb2NrYWRzbm90LmNvbS9ld2F0ZXJmYWxsLm1pbi5jc3M=","ZG5oZmk1bm4yZHQ2Ny5jbG91ZGZyb250Lm5ldC9xYURZei9qbWFpbi5qcw=="],u=-1,m,q,f=function(){clearTimeout(q);u++;if(c[u]&&!(1771828549000<(new Date).getTime()&&1<u)){m=t.document.createElement("script");m.type="text/javascript";m.async=!0;var r=t.document.getElementsByTagName("script")[0];m.src="https://"+atob(c[u]);m.crossOrigin="anonymous";m.onerror=f;m.onload=function(){clearTimeout(q);t[d.slice(0,16)+d.slice(0,16)]||f()};q=setTimeout(f,5E3);r.parentNode.insertBefore(m,r)}};if(!t[d]){try{Object.freeze(t[d]=n)}catch(e){}f()}})();
-/*]]>/* */
-</script>
-      <a href="index.html">Home</a>
-      <input type="text" class="search-bar" placeholder="Search..." onfocus="openSearchModal()" />
-    </div>
-  </div>
 
-  <!--Logo-->
-    <meta charset="UTF-8">
-  <title>Website with Logo</title>
+  <!-- JavaScript -->
+  <script defer src="js/home.js"></script>
+
+  <!-- Background & Logo Styling -->
   <style>
+    body {
+      background-image: url("6101094.jpg");
+      background-size: cover;
+      background-attachment: fixed;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
     header {
-      text-align: top;
       padding: 10px;
-      background-color: transparent;
+      text-align: center;
+      background-color: rgba(0,0,0,0.5);
     }
 
     img.logo {
-      max-width: 200px; /* Adjust size as needed */
+      max-width: 200px;
       height: auto;
     }
-  </style>
-</head>
-<body>
 
-  <header>
-    <img src="logo.png" alt="Company Logo" class="logo">
-  </header>
-
-<!--Movie Categories HTML Code-->
- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Movie Categories</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <h1>Movie Categories</h1>
-  <nav>
-    <button onclick="loadCategory('28')">Action</button>
-    <button onclick="loadCategory('35')">Comedy</button>
-    <button onclick="loadCategory('18')">Drama</button>
-  </nav>
-  <div id="movies"></div>
-  <script src="script.js"></script>
-</body>
-</html>
- 
-<!--Background-->
-  <style>
-    body {
- background-image: url("6101094.jpg");
-    }
-
-<!--Title Categories-->
     h1 {
       text-align: center;
       color: #8F00FF;
     }
 
     .category-container {
-      display: center;
-      inline-box: repeat(auto-fit, minmax(150px, 1fr));
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       gap: 20px;
       max-width: 800px;
-      margin: 0 auto;
+      margin: 20px auto;
+      padding: 10px;
     }
 
     .category-card {
       background: black;
+      color: white;
       padding: 20px;
       text-align: center;
       border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
       cursor: pointer;
+      transition: transform 0.3s ease;
     }
 
     .category-card:hover {
       transform: scale(1.05);
     }
-
-    .category-card a {
-      text-decoration: none;
-      color: #444;
-      font-weight: bold;
-    }
   </style>
 </head>
+
 <body>
-  
-  <div class="banner" id="banner">
-    <h1 id="banner-title"></h1>
+  <!-- Header with Logo -->
+  <header>
+    <img src="logo.png" alt="Company Logo" class="logo">
+  </header>
+
+  <!-- Movie Categories -->
+  <h1>Movie Categories</h1>
+  <div class="category-container">
+    <div class="category-card" onclick="loadCategory('28')">Action</div>
+    <div class="category-card" onclick="loadCategory('35')">Comedy</div>
+    <div class="category-card" onclick="loadCategory('18')">Drama</div>
+    <div class="category-card" onclick="loadCategory('27')">Horror</div>
+    <div class="category-card" onclick="loadCategory('10749')">Romance</div>
+    <div class="category-card" onclick="loadCategory('16')">Animation</div>
   </div>
 
+  <!-- Trending Sections -->
   <div class="row">
     <h2>Trending Movies</h2>
     <div class="list" id="movies-list"></div>
@@ -122,18 +100,18 @@
     <div class="list" id="anime-list"></div>
   </div>
 
+  <!-- Modal Viewer -->
   <div class="modal" id="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal()" style="color: green;">&times;</span>
       <div class="modal-body">
-  <img id="modal-image" src="" alt="" />
-  <div class="modal-text">
-    <h2 id="modal-title"></h2>
-    <div class="stars" id="modal-rating"></div>
-    <p id="modal-description"></p>
-  </div>
-</div>
-      
+        <img id="modal-image" src="" alt="" />
+        <div class="modal-text">
+          <h2 id="modal-title"></h2>
+          <div class="stars" id="modal-rating"></div>
+          <p id="modal-description"></p>
+        </div>
+      </div>
       <div class="server-selector">
         <label for="server">Change Server:</label>
         <select id="server" onchange="changeServer()">
@@ -146,20 +124,23 @@
     </div>
   </div>
 
+  <!-- Search Modal -->
   <div class="search-modal" id="search-modal">
     <span class="close" onclick="closeSearchModal()" style="color: red;">&times;</span>
     <input type="text" id="search-input" placeholder="Search for a movie or show..." oninput="searchTMDB()" />
     <div class="results" id="search-results"></div>
   </div>
 
-<footer class="footer">
-  <div class="footer-content">
-    <p>&copy; 2025 My Website. All rights reserved.</p>
-    <div class="footer-links">
-      <a href="#">Disclaimer</a>
-      <a href="#">About Us</a>
-      <a href="#">Contact Us</a>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 My Website. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Disclaimer</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact Us</a>
+      </div>
     </div>
-  </div>
-</footer>  
+  </footer>
 </body>
+</html>
