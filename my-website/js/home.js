@@ -176,3 +176,59 @@ function displayCategoryMovies(movies) {
 }
 
 init();
+
+  function loadCategory(category) {
+  if (category === 'tv') {
+    fetch(`${BASE_URL}/discover/tv?api_key=${API_KEY}`)
+      .then(res => res.json())
+      .then(data => {
+        const tvShows = data.results.map(show => ({
+          ...show,
+          media_type: "tv" // ✅ Important
+        }));
+        displayCategoryMovies(tvShows);
+      });
+  } else if (category === 'anime') {
+    fetch(`${BASE_URL}/discover/tv?api_key=${API_KEY}&with_genres=16&with_original_language=ja`)
+      .then(res => res.json())
+      .then(data => {
+        const anime = data.results.map(anime => ({
+          ...anime,
+          media_type: "tv" // ✅ Important
+        }));
+        displayCategoryMovies(anime);
+      });
+  } else {
+    fetch(`${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${category}`)
+      .then(res => res.json())
+      .then(data => {
+        const movies = data.results.map(movie => ({
+          ...movie,
+          media_type: "movie" // ✅ Important
+        }));
+        displayCategoryMovies(movies);
+      });
+  }
+}
+
+function displayCategoryMovies(items) {
+  const container = document.getElementById('movies');
+  container.innerHTML = '';
+  container.style.display = 'grid';
+  container.style.gridTemplateColumns = 'repeat(auto-fit, minmax(150px, 1fr))';
+  container.style.gap = '20px';
+
+  items.forEach(item => {
+    if (!item.poster_path) return;
+    const div = document.createElement('div');
+    div.className = 'movie';
+    div.style.cursor = 'pointer';
+    div.innerHTML = `
+      <img src="https://image.tmdb.org/t/p/w200${item.poster_path}" alt="${item.title || item.name}" />
+      <p>${item.title || item.name}</p>
+    `;
+    div.onclick = () => showDetails(item); // ✅ Ensures click loads into player
+    container.appendChild(div);
+  });
+}
+
