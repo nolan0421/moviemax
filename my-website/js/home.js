@@ -216,5 +216,50 @@ function nextBanner() {
 document.addEventListener("DOMContentLoaded", () => {
   showBanner(currentBanner);
 });
+const API_KEY = '6fcb6a54a1cf6dcf2802fc1d9af8b3c8';
+const BASE_URL = 'https://api.themoviedb.org/3';
+const IMG_URL = 'https://image.tmdb.org/t/p/original';
+
+let bannerMovies = [];
+let currentScroll = 0;
+
+async function fetchTrendingBanners() {
+  const res = await fetch(`${BASE_URL}/trending/movie/week?api_key=${API_KEY}`);
+  const data = await res.json();
+  // Filter only movies with image available
+  bannerMovies = data.results.filter(movie => movie.backdrop_path || movie.poster_path);
+  renderBanners();
+}
+
+function renderBanners() {
+  const track = document.getElementById("banner-track");
+  track.innerHTML = "";
+
+  bannerMovies.forEach(movie => {
+    const imageUrl = `${IMG_URL}${movie.backdrop_path || movie.poster_path}`;
+    const item = document.createElement("div");
+    item.className = "banner-item";
+    item.style.backgroundImage = `url(${imageUrl})`;
+    item.innerHTML = `<h3>${movie.title || movie.name}</h3>`;
+    item.onclick = () => showDetails(movie);
+    track.appendChild(item);
+  });
+}
+
+function scrollBanner(direction) {
+  const scrollAmount = 240; // width + gap
+  currentScroll += direction * scrollAmount;
+
+  const maxScroll = (bannerMovies.length - 5) * scrollAmount;
+  if (currentScroll < 0) currentScroll = 0;
+  if (currentScroll > maxScroll) currentScroll = maxScroll;
+
+  const track = document.getElementById("banner-track");
+  track.style.transform = `translateX(-${currentScroll}px)`;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  fetchTrendingBanners();
+});
 
 init();
