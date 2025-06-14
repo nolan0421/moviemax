@@ -184,5 +184,37 @@ async function init() {
   displayList(anime, 'anime-list');
   displayList(kdrama, 'kdrama-list');
 }
+const banner = document.getElementById("banner");
+const bannerTitle = document.getElementById("banner-title");
+
+// Replace these with your own banner data
+const banners = [
+  { image: "6101094.jpg.jpg", title: "Featured Movie 1" },
+  { image: "images/banner2.jpg", title: "Featured Movie 2" },
+  { image: "images/banner3.jpg", title: "Featured Movie 3" }
+];
+
+let currentBanner = 0;
+
+function showBanner(index) {
+  const bannerData = banners[index];
+  banner.style.backgroundImage = `url('${bannerData.image}')`;
+  bannerTitle.textContent = bannerData.title;
+}
+
+function prevBanner() {
+  currentBanner = (currentBanner - 1 + banners.length) % banners.length;
+  showBanner(currentBanner);
+}
+
+function nextBanner() {
+  currentBanner = (currentBanner + 1) % banners.length;
+  showBanner(currentBanner);
+}
+
+// Initial load
+document.addEventListener("DOMContentLoaded", () => {
+  showBanner(currentBanner);
+});
 
 init();
