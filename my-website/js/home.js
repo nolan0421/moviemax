@@ -21,6 +21,18 @@ async function fetchTrendingAnime() {
   }
   return allResults;
 }
+async function fetchTrendingKoreanTV() {
+  let allResults = [];
+  for (let page = 1; page <= 5; page++) {
+    const res = await fetch(`${BASE_URL}/trending/tv/week?api_key=${API_KEY}&page=${page}`);
+    const data = await res.json();
+    const filtered = data.results.filter(item =>
+      item.original_language === 'ko'
+    );
+    allResults = allResults.concat(filtered);
+  }
+  return allResults;
+}
 
 function displayBanner(item) {
   document.getElementById('banner').style.backgroundImage = `url(${IMG_URL}${item.backdrop_path})`;
@@ -164,11 +176,13 @@ async function init() {
   const movies = await fetchTrending('movie');
   const tvShows = await fetchTrending('tv');
   const anime = await fetchTrendingAnime();
+  const kdrama = await fetchTrendingKoreanTV();
 
   displayBanner(movies[Math.floor(Math.random() * movies.length)]);
   displayList(movies, 'movies-list');
   displayList(tvShows, 'tvshows-list');
   displayList(anime, 'anime-list');
+  displayList(kdrama, 'kdrama-list');
 }
 
 init();
