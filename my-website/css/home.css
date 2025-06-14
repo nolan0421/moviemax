@@ -80,7 +80,7 @@ h1 {
 
 /* === Banner Section === */
 .banner {
-  width: 600px;
+  width: fit;
   height: 600px;
   margin: 40px auto; /* Center horizontally with some top margin */
   background-image: url("6101094.jpg.jpg");
