@@ -81,8 +81,8 @@ h1 {
 
 /* === Banner Section === */
 .banner {
-  width: fit;
-  height: 600px;
+  width: 300;
+  height: 300px;
   margin: 40px auto; /* Center horizontally with some top margin */
   background-image: url("6101094.jpg.jpg");
   background-size: cover;
@@ -222,4 +222,8 @@ h1 {
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 15px;
   padding: 20px;
+}
+/*Trending Names Text*/
+.row h2 {
+  color: white;
 }
