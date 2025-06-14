@@ -1,6 +1,5 @@
 /* === General Body Styling === */
 body {
-  /* ===background-image: url('images/background.jpg');===*/
   background-color: black;
   background-size: cover;
   background-repeat: no-repeat;
@@ -12,7 +11,7 @@ body {
   position: relative;
 }
 
-/* === Dark Overlay with Gradient on 4 Sides === */
+/* === Dark Overlay === */
 .overlay-wrapper::before {
   content: "";
   position: fixed;
@@ -25,7 +24,7 @@ body {
     linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent 30%),
     linear-gradient(to left, rgba(0, 0, 0, 0.6), transparent 30%),
     linear-gradient(to right, rgba(0, 0, 0, 0.6), transparent 30%),
-    rgba(0, 0, 0, 0.6); /* base dark overlay */
+    rgba(0, 0, 0, 0.6);
   z-index: -1;
 }
 
@@ -49,8 +48,8 @@ img.logo {
   border: 1px solid #ccc;
 }
 
-/* === Categories === */
-h1 {
+/* === Title & Categories === */
+h1, .row h2 {
   text-align: center;
   color: #fff;
 }
@@ -69,6 +68,7 @@ h1 {
   margin: 0 auto;
 }
 
+/* === Movie Cards === */
 .movie {
   text-align: center;
   color: white;
@@ -78,32 +78,6 @@ h1 {
   width: 150px;
   border-radius: 8px;
 }
-
-/* === Banner Section === */
-.banner {
-  width: 600px;
-  height: 300px;
-  margin: 40px auto; /* Center horizontally with some top margin */
-  background-image: url("6101094.jpg.jpg");
-  background-size: cover;
-  background-position: center;
-  border-radius: 30px; /* Bevel-like effect */
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6); /* Floating shadow effect */
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  color: white;
-  text-align: center;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Optional: floating hover animation */
-.banner:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
-}
-
 
 /* === Movie Rows === */
 .row {
@@ -123,199 +97,8 @@ h1 {
   cursor: pointer;
 }
 
-/* === Modal === */
-.modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.9);
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
-.modal-content {
-  background: #fff;
-  padding: 20px;
-  max-width: 800px;
-  width: 90%;
-  max-height: 90vh;
-  overflow-y: auto;
-  border-radius: 10px;
-}
-
-.modal-body {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.modal-body img,
-.modal-body iframe,
-.modal-body video {
-  width: 100%;
-  max-height: 500px;
-  border-radius: 10px;
-  border: none;
-}
-
-.modal-text {
-  flex: 1;
-}
-
-/* === Search Modal === */
-.search-modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.9);
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  z-index: 999;
-}
-
-#search-input {
-  padding: 10px;
-  width: 80%;
-  font-size: 1rem;
-  border-radius: 8px;
-}
-
-.results {
-  display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  padding: 20px;
-}
-
-.results img {
-  width: 120px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-/* === Footer === */
-.footer {
-  background: #000;
-  color: white;
-  text-align: center;
-  padding: 20px 0;
-  margin-top: 40px;
-}
-
-.footer-links a {
-  margin: 0 10px;
-  color: #8F00FF;
-  text-decoration: none;
-}
-
-/* === Grid Layout === */
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 15px;
-  padding: 20px;
-}
-/*Trending Names Text*/
-.row h2 {
-  color: white;
-}
-.banner-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.arrow {
-  font-size: 40px;
-  color: white;
-  cursor: pointer;
-  user-select: none;
-  padding: 10px;
-  transition: color 0.3s ease;
-  z-index: 2;
-}
-
-.arrow:hover {
-  color: #ff4081;
-}
-
-.arrow.left {
-  position: absolute;
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.arrow.right {
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-}
+/* === Banner Carousel === */
 .banner-carousel {
   position: relative;
   width: 100%;
-  max-width: 1200px;
-  margin: 40px auto;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-}
-
-.banner-track {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-  gap: 20px;
-  padding: 10px;
-}
-
-.banner-item {
-  min-width: 220px;
-  height: 300px;
-  background-size: cover;
-  background-position: center;
-  border-radius: 20px;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.6);
-  flex-shrink: 0;
-  position: relative;
-}
-
-.banner-item h3 {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  color: white;
-  text-shadow: 0 0 5px black;
-}
-
-.banner-arrow {
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  font-size: 2rem;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  z-index: 10;
-  transition: background 0.3s ease;
-}
-
-.banner-arrow:hover {
-  background: rgba(0, 0, 0, 0.8);
-}
-
-.banner-arrow.left {
-  margin-right: 10px;
-}
-
-.banner-arrow.right {
-  margin-left: 10px;
-}
+  max-widt
