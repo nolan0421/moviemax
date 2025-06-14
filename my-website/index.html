@@ -152,6 +152,15 @@ function triggerPopAd() {
 window.addEventListener("DOMContentLoaded", () => {
   setTimeout(triggerPopAd, 10000);
 });
+<div class="banner-wrapper">
+  <div class="arrow left" onclick="prevBanner()">&#10094;</div>
+  
+  <div class="banner" id="banner">
+    <h1 id="banner-title">Featured Movie</h1>
+  </div>
+  
+  <div class="arrow right" onclick="nextBanner()">&#10095;</div>
+</div>
 
 </body>
 </html>
