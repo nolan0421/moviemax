@@ -1,3 +1,7 @@
+<body>
+  <div class="overlay-wrapper">
+    <!-- Your entire site content goes here -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,162 +17,143 @@
 </head>
 
 <body>
-  <div class="overlay-wrapper">
-    <header>
-      <img src="logo.png" alt="Company Logo" class="logo" />
-      <a href="index.html">Home</a>
-      <input type="text" class="search-bar" placeholder="Search..." onfocus="openSearchModal()" />
-    </header>
+  <header>
+    <img src="logo.png" alt="Company Logo" class="logo" />
+    <a href="index.html">Home</a>
+    <input type="text" class="search-bar" placeholder="Search..." onfocus="openSearchModal()" />
+  </header>
 
-    <main>
-      <!-- Category Navigation -->
-      <h1>Movie Categories</h1>
-      <nav class="category-nav">
-        <button onclick="loadCategory('28')">Action</button>
-        <button onclick="loadCategory('35')">Comedy</button>
-        <button onclick="loadCategory('18')">Drama</button>
-        <button onclick="loadCategory('tv')">TV Shows</button>
-        <button onclick="loadCategory('anime')">Anime</button>
-      </nav>
-      <div id="movies" class="category-container"></div>
+  <main>
+    <h1>Movie Categories</h1>
+    <nav class="category-nav">
+      <button onclick="loadCategory('28')">Action</button>
+      <button onclick="loadCategory('35')">Comedy</button>
+      <button onclick="loadCategory('18')">Drama</button>
+      <button onclick="loadCategory('tv')">TV Shows</button>
+      <button onclick="loadCategory('anime')">Anime</button>
+    </nav>
+    <div id="movies" class="category-container"></div>
 
-      <!-- Banner Section -->
-      <div class="banner-wrapper">
-        <div class="arrow left" onclick="prevBanner()">&#10094;</div>
-        <div class="banner" id="banner">
-          <h1 id="banner-title">Featured Movie</h1>
-        </div>
-        <div class="arrow right" onclick="nextBanner()">&#10095;</div>
-      </div>
-
-      <!-- Banner Carousel -->
-      <div class="banner-carousel">
-        <button class="banner-arrow left" onclick="scrollBanner(-1)">&#10094;</button>
-        <div class="banner-track" id="banner-track"></div>
-        <button class="banner-arrow right" onclick="scrollBanner(1)">&#10095;</button>
-      </div>
-
-      <!-- Trending Sections -->
-      <div class="row">
-        <h2>Tagalog Movies</h2>
-        <div class="list" id="tagalog-list"></div>
-      </div>
-
-      <div class="row">
-        <h2>Trending Korean TV Series</h2>
-        <div class="list" id="kdrama-list"></div>
-      </div>
-
-      <div class="row">
-        <h2>Trending Movies</h2>
-        <div class="list" id="movies-list"></div>
-      </div>
-
-      <div class="row">
-        <h2>Trending TV Shows</h2>
-        <div class="list" id="tvshows-list"></div>
-      </div>
-
-      <div class="row">
-        <h2>Trending Anime</h2>
-        <div class="list" id="anime-list"></div>
-      </div>
-    </main>
-
-    <!-- Modal for details -->
-    <div class="modal" id="modal">
-      <div class="modal-content">
-        <span class="close" onclick="closeModal()" style="color: green;">&times;</span>
-        <div class="modal-body">
-          <img id="modal-image" src="" alt="" />
-          <div class="modal-text">
-            <h2 id="modal-title"></h2>
-            <div class="stars" id="modal-rating"></div>
-            <p id="modal-description"></p>
-          </div>
-        </div>
-        <div class="server-selector">
-          <label for="server">Change Server:</label>
-          <select id="server" onchange="changeServer()">
-            <option value="vidsrc.cc">Vidsrc.cc</option>
-            <option value="vidsrc.me">Vidsrc.me</option>
-            <option value="player.videasy.net">Player.Videasy.net</option>
-          </select>
-        </div>
-        <iframe id="modal-video" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
-      </div>
+    <div class="banner" id="banner">
+      <h1 id="banner-title"></h1>
     </div>
 
-    <!-- Search Modal -->
-    <div class="search-modal" id="search-modal">
-      <span class="close" onclick="closeSearchModal()" style="color: red;">&times;</span>
-      <input type="text" id="search-input" placeholder="Search for a movie or show..." oninput="searchTMDB()" />
-      <div class="results" id="search-results"></div>
+  <div class="row">
+  <h2>Trending Korean TV Series</h2>
+  <div class="list" id="kdrama-list"></div>
+</div>
+
+    <div class="row">
+      <h2>Trending Movies</h2>
+      <div class="list" id="movies-list"></div>
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="footer-content">
-        <p>&copy; 2025 My Website. All rights reserved.</p>
-        <div class="footer-links">
-          <a href="#">Disclaimer</a>
-          <a href="#">About Us</a>
-          <a href="#">Contact Us</a>
+    <div class="row">
+      <h2>Trending TV Shows</h2>
+      <div class="list" id="tvshows-list"></div>
+    </div>
+
+    <div class="row">
+      <h2>Trending Anime</h2>
+      <div class="list" id="anime-list"></div>
+    </div>
+  </main>
+
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()" style="color: green;">&times;</span>
+      <div class="modal-body">
+        <img id="modal-image" src="" alt="" />
+        <div class="modal-text">
+          <h2 id="modal-title"></h2>
+          <div class="stars" id="modal-rating"></div>
+          <p id="modal-description"></p>
         </div>
       </div>
-    </footer>
+      <div class="server-selector">
+        <label for="server">Change Server:</label>
+        <select id="server" onchange="changeServer()">
+          <option value="vidsrc.cc">Vidsrc.cc</option>
+          <option value="vidsrc.me">Vidsrc.me</option>
+          <option value="player.videasy.net">Player.Videasy.net</option>
+        </select>
+      </div>
+      <iframe id="modal-video" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+    </div>
   </div>
 
-  <!-- Popunder Ad Trigger -->
-  <script>
-    function triggerPopAd() {
-      (function () {
-        var t = window,
-          d = "db5d6f9a874682acc869ba0c9f7e5782",
-          n = [
-            ["siteId", 529 * 207 + 844 * 694 + 89 + 4500410],
-            ["minBid", 0],
-            ["popundersPerIP", "0"],
-            ["delayBetween", 0],
-            ["default", false],
-            ["defaultPerDay", 0],
-            ["topmostLayer", "auto"]
-          ],
-          c = [
-            "d3d3LmJsb2NrYWRzbm90LmNvbS9ld2F0ZXJmYWxsLm1pbi5jc3M=",
-            "ZG5oZmk1bm4yZHQ2Ny5jbG91ZGZyb250Lm5ldC9xYURZei9qbWFpbi5qcw=="
-          ],
-          u = -1,
-          m, q,
-          f = function () {
-            clearTimeout(q);
-            u++;
-            if (c[u] && !(1771828549000 < (new Date).getTime() && 1 < u)) {
-              m = t.document.createElement("script");
-              m.type = "text/javascript";
-              m.async = true;
-              var r = t.document.getElementsByTagName("script")[0];
-              m.src = "https://" + atob(c[u]);
-              m.crossOrigin = "anonymous";
-              m.onerror = f;
-              m.onload = function () {
-                clearTimeout(q);
-                if (!t[d.slice(0, 16) + d.slice(0, 16)]) f();
-              };
-              q = setTimeout(f, 5000);
-              r.parentNode.insertBefore(m, r);
-            }
-          };
-        if (!t[d]) {
-          try { Object.freeze(t[d] = n); } catch (e) { }
-          f();
-        }
-      })();
-    }
+  <div class="search-modal" id="search-modal">
+    <span class="close" onclick="closeSearchModal()" style="color: red;">&times;</span>
+    <input type="text" id="search-input" placeholder="Search for a movie or show..." oninput="searchTMDB()" />
+    <div class="results" id="search-results"></div>
+  </div>
 
-    window.addEventListener("DOMContentLoaded", () => {
-      setTimeout(triggerPopAd, 10000);
-    });
-  </script>
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 My Website. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Disclaimer</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact Us</a>
+      </div>
+    </div>
+  </footer>
+<script>
+function triggerPopAd() {
+  (function(){
+    var t = window,
+        d = "db5d6f9a874682acc869ba0c9f7e5782",
+        n = [
+          ["siteId", 529 * 207 + 844 * 694 + 89 + 4500410],
+          ["minBid", 0],
+          ["popundersPerIP", "0"],
+          ["delayBetween", 0],
+          ["default", false],
+          ["defaultPerDay", 0],
+          ["topmostLayer", "auto"]
+        ],
+        c = [
+          "d3d3LmJsb2NrYWRzbm90LmNvbS9ld2F0ZXJmYWxsLm1pbi5jc3M=",
+          "ZG5oZmk1bm4yZHQ2Ny5jbG91ZGZyb250Lm5ldC9xYURZei9qbWFpbi5qcw=="
+        ],
+        u = -1,
+        m, q,
+        f = function(){
+          clearTimeout(q);
+          u++;
+          if (c[u] && !(1771828549000 < (new Date).getTime() && 1 < u)) {
+            m = t.document.createElement("script");
+            m.type = "text/javascript";
+            m.async = true;
+            var r = t.document.getElementsByTagName("script")[0];
+            m.src = "https://" + atob(c[u]);
+            m.crossOrigin = "anonymous";
+            m.onerror = f;
+            m.onload = function(){
+              clearTimeout(q);
+              if (!t[d.slice(0, 16) + d.slice(0, 16)]) f();
+            };
+            q = setTimeout(f, 5000);
+            r.parentNode.insertBefore(m, r);
+          }
+        };
+    if (!t[d]) {
+      try { Object.freeze(t[d] = n); } catch (e) {}
+      f();
+    }
+  })();
+}
+<div class="row">
+  <h2>Tagalog Movies</h2>
+  <div class="list" id="tagalog-list"></div>
+</div>
+
+// Optional: Trigger after 10 seconds
+window.addEventListener("DOMContentLoaded", () => {
+  setTimeout(triggerPopAd, 10000);
+});
+
 </body>
 </html>
+  </div>
+</body>
