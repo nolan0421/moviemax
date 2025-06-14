@@ -137,16 +137,6 @@ function loadCategory(category) {
         }));
         displayCategoryMovies(anime);
       });
-  } else if (category === 'korean') {
-    fetch(`${BASE_URL}/discover/tv?api_key=${API_KEY}&with_original_language=ko`)
-      .then(res => res.json())
-      .then(data => {
-        const koreanTV = data.results.map(show => ({
-          ...show,
-          media_type: "tv"
-        }));
-        displayCategoryMovies(koreanTV);
-      });
   } else {
     fetch(`${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${category}`)
       .then(res => res.json())
