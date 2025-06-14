@@ -78,7 +78,8 @@ h1 {
 /* Banner */
 .banner {
   position: relative;
-  height: 300px;
+  width: 600px;
+  height: 600px;
   background: url("images/banner-main.png") center/cover no-repeat;
   z-index: 1;
   overflow: hidden;
