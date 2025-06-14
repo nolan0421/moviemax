@@ -227,3 +227,37 @@ h1 {
 .row h2 {
   color: white;
 }
+.banner-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.arrow {
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  padding: 10px;
+  transition: color 0.3s ease;
+  z-index: 2;
+}
+
+.arrow:hover {
+  color: #ff4081;
+}
+
+.arrow.left {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.arrow.right {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
