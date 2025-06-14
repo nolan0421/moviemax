@@ -60,6 +60,7 @@ h1 {
 /* Banner */
 .banner {
   height: 300px;
+  background-image: url("6101094.jpg.jpg"); /* Add this line */
   background-size: cover;
   background-position: center;
   display: flex;
