@@ -1,7 +1,7 @@
 /* === General Body Styling === */
 body {
   /* ===background-image: url('images/background.jpg');===*/
-  background-color: white;
+  background-color: black;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -35,7 +35,7 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-  background-color: transparent;
+  background-color: white;
 }
 
 img.logo {
