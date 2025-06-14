@@ -261,3 +261,61 @@ h1 {
   top: 50%;
   transform: translateY(-50%);
 }
+.banner-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px auto;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.banner-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  gap: 20px;
+  padding: 10px;
+}
+
+.banner-item {
+  min-width: 220px;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+  flex-shrink: 0;
+  position: relative;
+}
+
+.banner-item h3 {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  text-shadow: 0 0 5px black;
+}
+
+.banner-arrow {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 2rem;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s ease;
+}
+
+.banner-arrow:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.banner-arrow.left {
+  margin-right: 10px;
+}
+
+.banner-arrow.right {
+  margin-left: 10px;
+}
