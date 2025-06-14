@@ -79,16 +79,29 @@ h1 {
 
 /* === Banner Section === */
 .banner {
-  height: 300px;
+  width: 600px;
+  height: 600px;
+  margin: 40px auto; /* Center horizontally with some top margin */
   background-image: url("6101094.jpg.jpg");
   background-size: cover;
   background-position: center;
+  border-radius: 30px; /* Bevel-like effect */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6); /* Floating shadow effect */
   display: flex;
   align-items: flex-end;
   justify-content: center;
   color: white;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  text-align: center;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+/* Optional: floating hover animation */
+.banner:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
+}
+
 
 /* === Movie Rows === */
 .row {
