@@ -227,3 +227,74 @@ h1 {
 .row h2 {
   color: white;
 }
+/* === Mobile Responsive Styles === */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+
+  img.logo {
+    max-width: 200px;
+  }
+
+  .search-bar {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .banner {
+    width: 90%;
+    height: 200px;
+    border-radius: 20px;
+  }
+
+  .category-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .movie img,
+  .list img {
+    width: 100px;
+  }
+
+  .row {
+    margin: 10px;
+  }
+
+  .list {
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .modal-content {
+    width: 95%;
+    padding: 15px;
+  }
+
+  #search-input {
+    width: 90%;
+    font-size: 0.9rem;
+  }
+
+  .results img {
+    width: 100px;
+  }
+
+  .grid-container {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    padding: 10px;
+  }
+
+  .footer {
+    padding: 15px 10px;
+  }
+
+  .footer-links a {
+    display: inline-block;
+    margin: 5px 5px;
+  }
+}
