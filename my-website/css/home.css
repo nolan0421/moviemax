@@ -1,6 +1,6 @@
 /* === General Body Styling === */
 body {
-  /* ===background-image: url('images/background.jpg');===*/
+  background-image: url('images/background.jpg')
   background-color: black;
   background-size: cover;
   background-repeat: no-repeat;
