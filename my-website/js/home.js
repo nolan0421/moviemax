@@ -185,4 +185,55 @@ async function init() {
   displayList(kdrama, 'kdrama-list');
 }
 
+
+let trendingMoviePage = 1;
+let trendingTVPage = 1;
+let trendingAnimePage = 1;
+let trendingKdramaPage = 1;
+
+
+async function loadMoreTrending(type) {
+  if (type === 'movie') {
+    trendingMoviePage++;
+    const res = await fetch(`${BASE_URL}/trending/movie/week?api_key=${API_KEY}&page=${trendingMoviePage}`);
+    const data = await res.json();
+    displayList(data.results, 'movies-list', true);
+  } else if (type === 'tv') {
+    trendingTVPage++;
+    const res = await fetch(`${BASE_URL}/trending/tv/week?api_key=${API_KEY}&page=${trendingTVPage}`);
+    const data = await res.json();
+    displayList(data.results, 'tvshows-list', true);
+  } else if (type === 'anime') {
+    trendingAnimePage++;
+    const res = await fetch(`${BASE_URL}/trending/tv/week?api_key=${API_KEY}&page=${trendingAnimePage}`);
+    const data = await res.json();
+    const filtered = data.results.filter(item =>
+      item.original_language === 'ja' && item.genre_ids.includes(16)
+    );
+    displayList(filtered, 'anime-list', true);
+  } else if (type === 'kdrama') {
+    trendingKdramaPage++;
+    const res = await fetch(`${BASE_URL}/trending/tv/week?api_key=${API_KEY}&page=${trendingKdramaPage}`);
+    const data = await res.json();
+    const filtered = data.results.filter(item =>
+      item.original_language === 'ko'
+    );
+    displayList(filtered, 'kdrama-list', true);
+  }
+}
+function displayList(items, containerId, append = false) {
+  const container = document.getElementById(containerId);
+  if (!append) {
+    container.innerHTML = '';
+  }
+  items.forEach(item => {
+    const img = document.createElement('img');
+    img.src = `${IMG_URL}${item.poster_path}`;
+    img.alt = item.title || item.name;
+    img.onclick = () => showDetails(item);
+    container.appendChild(img);
+  });
+}
+
+
 init();
