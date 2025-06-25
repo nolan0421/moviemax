@@ -298,5 +298,8 @@ h1 {
     margin: 5px 5px;
   }
 }
+.scroll-trigger {
+  height: 1px;
+}
 
 
