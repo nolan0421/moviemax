@@ -236,4 +236,36 @@ function displayList(items, containerId, append = false) {
 }
 
 
-init();
+
+function setupInfiniteScroll() {
+  const options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 1.0
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        if (entry.target.id === 'movies-trigger') {
+          loadMoreTrending('movie');
+        } else if (entry.target.id === 'tvshows-trigger') {
+          loadMoreTrending('tv');
+        } else if (entry.target.id === 'anime-trigger') {
+          loadMoreTrending('anime');
+        } else if (entry.target.id === 'kdrama-trigger') {
+          loadMoreTrending('kdrama');
+        }
+      }
+    });
+  }, options);
+
+  observer.observe(document.getElementById('movies-trigger'));
+  observer.observe(document.getElementById('tvshows-trigger'));
+  observer.observe(document.getElementById('anime-trigger'));
+  observer.observe(document.getElementById('kdrama-trigger'));
+}
+
+
+init();init().then(setupInfiniteScroll);
+
