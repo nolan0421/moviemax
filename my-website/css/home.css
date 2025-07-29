@@ -1,7 +1,7 @@
 /* === General Body Styling === */
 body {
   background-image: url('images/background.jpg')
-  background-color: black;
+
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -13,7 +13,7 @@ body {
 }
 
 /* === Dark Overlay with Gradient on 4 Sides === */
-/* ===.overlay-wrapper::before {
+.overlay-wrapper::before {
   content: "";
   position: fixed;
   top: 0;
