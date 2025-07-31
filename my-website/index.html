@@ -15,13 +15,15 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <script defer src="js/home.js"></script>
 
-    <!-- ✅ Open Adsterra Direct Link in New Tab on First User Click -->
+ <!-- ✅ Open Direct Link in New Tab 3 Seconds After First Click -->
   <script>
-    function openDirectLinkAd() {
-      window.open('https://specificationauthenticrelentless.com/c8z8tfxrms?key=a89000b16c8cda4b4ba73bb869dc55c7', '_blank');
-      document.removeEventListener('click', openDirectLinkAd);
+    function openDirectLinkAdWithDelay() {
+      setTimeout(function() {
+        window.open('https://specificationauthenticrelentless.com/c8z8tfxrms?key=a89000b16c8cda4b4ba73bb869dc55c7', '_blank');
+      }, 3000); // 3000 ms = 3 seconds
+      document.removeEventListener('click', openDirectLinkAdWithDelay);
     }
-    document.addEventListener('click', openDirectLinkAd);
+    document.addEventListener('click', openDirectLinkAdWithDelay);
   </script>
 
   <!-- ✅ Adsterra Popunder Scripts -->
@@ -120,51 +122,7 @@
       </div>
     </div>
   </footer>
-<script>
-function triggerPopAd() {
-  (function(){
-    var t = window,
-        d = "db5d6f9a874682acc869ba0c9f7e5782",
-        n = [
-          ["siteId", 529 * 207 + 844 * 694 + 89 + 4500410],
-          ["minBid", 0],
-          ["popundersPerIP", "0"],
-          ["delayBetween", 0],
-          ["default", false],
-          ["defaultPerDay", 0],
-          ["topmostLayer", "auto"]
-        ],
-        c = [
-          "d3d3LmJsb2NrYWRzbm90LmNvbS9ld2F0ZXJmYWxsLm1pbi5jc3M=",
-          "ZG5oZmk1bm4yZHQ2Ny5jbG91ZGZyb250Lm5ldC9xYURZei9qbWFpbi5qcw=="
-        ],
-        u = -1,
-        m, q,
-        f = function(){
-          clearTimeout(q);
-          u++;
-          if (c[u] && !(1771828549000 < (new Date).getTime() && 1 < u)) {
-            m = t.document.createElement("script");
-            m.type = "text/javascript";
-            m.async = true;
-            var r = t.document.getElementsByTagName("script")[0];
-            m.src = "https://" + atob(c[u]);
-            m.crossOrigin = "anonymous";
-            m.onerror = f;
-            m.onload = function(){
-              clearTimeout(q);
-              if (!t[d.slice(0, 16) + d.slice(0, 16)]) f();
-            };
-            q = setTimeout(f, 5000);
-            r.parentNode.insertBefore(m, r);
-          }
-        };
-    if (!t[d]) {
-      try { Object.freeze(t[d] = n); } catch (e) {}
-      f();
-    }
-  })();
-}
+
 <div class="row">
   <h2>Tagalog Movies</h2>
   <div class="list" id="tagalog-list"></div>
