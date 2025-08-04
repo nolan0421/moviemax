@@ -1,87 +1,67 @@
-<body>
-  <div class="overlay-wrapper">
-    <!-- Your entire site content goes here -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MOVIEMAX</title>
+
+  <!-- Styles -->
   <link rel="stylesheet" href="css/home.css" />
   <link rel="preload" href="css/home.css" as="style" />
   <link rel="preload" href="js/home.js" as="script" />
   <link rel="manifest" href="manifest.json" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Scripts -->
   <script defer src="js/home.js"></script>
 
-    <!-- ✅ Open Adsterra Direct Link in New Tab on First User Click -->
- <!-- ✅ Open Direct Link in New Tab 3 Seconds After First Click -->
+  <!-- ✅ Open Direct Link in New Tab 3 Seconds After First Click -->
   <script>
-    function openDirectLinkAd() {
-      window.open('https://specificationauthenticrelentless.com/c8z8tfxrms?key=a89000b16c8cda4b4ba73bb869dc55c7', '_blank');
-      document.removeEventListener('click', openDirectLinkAd);
     function openDirectLinkAdWithDelay() {
-      setTimeout(function() {
-        window.open('https://specificationauthenticrelentless.com/c8z8tfxrms?key=a89000b16c8cda4b4ba73bb869dc55c7', '_blank');
-      }, 3000); // 3000 ms = 3 seconds
+      setTimeout(function () {
+        window.open('https://specificationauthenticrelentless.com/pbs56eirj?key=2a52f9faa0b8c22c69ff97784904b486', '_blank');
+      }, 3000);
       document.removeEventListener('click', openDirectLinkAdWithDelay);
     }
-    document.addEventListener('click', openDirectLinkAd);
     document.addEventListener('click', openDirectLinkAdWithDelay);
   </script>
 
   <!-- ✅ Adsterra Popunder Scripts -->
-@@ -120,51 +122,7 @@
-      </div>
-    </div>
-  </footer>
-<script>
-function triggerPopAd() {
-  (function(){
-    var t = window,
-        d = "db5d6f9a874682acc869ba0c9f7e5782",
-        n = [
-          ["siteId", 529 * 207 + 844 * 694 + 89 + 4500410],
-          ["minBid", 0],
-          ["popundersPerIP", "0"],
-          ["delayBetween", 0],
-          ["default", false],
-          ["defaultPerDay", 0],
-          ["topmostLayer", "auto"]
-        ],
-        c = [
-          "d3d3LmJsb2NrYWRzbm90LmNvbS9ld2F0ZXJmYWxsLm1pbi5jc3M=",
-          "ZG5oZmk1bm4yZHQ2Ny5jbG91ZGZyb250Lm5ldC9xYURZei9qbWFpbi5qcw=="
-        ],
-        u = -1,
-        m, q,
-        f = function(){
-          clearTimeout(q);
-          u++;
-          if (c[u] && !(1771828549000 < (new Date).getTime() && 1 < u)) {
-            m = t.document.createElement("script");
-            m.type = "text/javascript";
-            m.async = true;
-            var r = t.document.getElementsByTagName("script")[0];
-            m.src = "https://" + atob(c[u]);
-            m.crossOrigin = "anonymous";
-            m.onerror = f;
-            m.onload = function(){
-              clearTimeout(q);
-              if (!t[d.slice(0, 16) + d.slice(0, 16)]) f();
-            };
-            q = setTimeout(f, 5000);
-            r.parentNode.insertBefore(m, r);
-          }
-        };
-    if (!t[d]) {
-      try { Object.freeze(t[d] = n); } catch (e) {}
-      f();
-    }
-  })();
-}
+  <script type='text/javascript' src='//pl27159586.profitableratecpm.com/d9/03/ea/d903ea13303574b4f0557cef9fa198cf.js'></script>
+  <script type='text/javascript' src='//specificationauthenticrelentless.com/d9/03/ea/d903ea13303574b4f0557cef9fa198cf.js'></script>
+</head>
 
-<div class="row">
-  <h2>Tagalog Movies</h2>
-  <div class="list" id="tagalog-list"></div>
+<body>
+  <div class="overlay-wrapper">
+
+    <header>
+      <img src="logo.png" alt="Company Logo" class="logo" />
+      <a href="index.html">Home</a>
+      <input type="text" class="search-bar" placeholder="Search..." onfocus="openSearchModal()" />
+    </header>
+
+    <main>
+      <h1>Movie Categories</h1>
+      <nav class="category-nav">
+        <button onclick="loadCategory('28')">Action</button>
+        <button onclick="loadCategory('35')">Comedy</button>
+        <button onclick="loadCategory('18')">Drama</button>
+        <button onclick="loadCategory('tv')">TV Shows</button>
+        <button onclick="loadCategory('anime')">Anime</button>
+      </nav>
+      <div id="movies" class="category-container"></div>
+
+      <div class="banner" id="banner">
+        <h1 id="banner-title"></h1>
+      </div>
+
+      <div class="row">
+        <h2>Trending Korean TV Series</h2>
+        <div class="list" id="kdrama-list"></div>
+        <div id="kdrama-trigger" class="scroll-trigger"></div>
+      </div>
+
+      <div class="row">
+        <h2>Trending Movies</h2>
+        <div class="list" id="movies-list"></div>
+        <div id="movies-trigger
