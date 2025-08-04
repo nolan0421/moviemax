@@ -302,3 +302,32 @@ h1 {
 }
 
 
+/* Add to your css/home.css file or inside <style> in <head> */
+@media screen and (max-width: 768px) {
+  header, .category-nav, .row, footer, .modal-content {
+    flex-direction: column;
+    padding: 1em;
+    font-size: 1em;
+  }
+
+  .search-bar {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .list > * {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  iframe {
+    height: 200px;
+  }
+}
+
