@@ -12,6 +12,37 @@
   <link rel="manifest" href="manifest.json" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
+  <!-- Responsive Enhancements -->
+  <style>
+    @media screen and (max-width: 768px) {
+      header, .category-nav, .row, .modal-content, .footer-content {
+        flex-direction: column;
+        padding: 1em;
+        font-size: 1em;
+      }
+
+      .search-bar {
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .list > * {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+
+      iframe {
+        height: 200px;
+      }
+    }
+  </style>
+
   <!-- Scripts -->
   <script defer src="js/home.js"></script>
 
@@ -35,7 +66,7 @@
   <div class="overlay-wrapper">
 
     <header>
-      <img src="logo.png" alt="Company Logo" class="logo" />
+      <img src="logo.png" alt="Company Logo" class="logo" loading="lazy" />
       <a href="index.html">Home</a>
       <input type="text" class="search-bar" placeholder="Search..." onfocus="openSearchModal()" />
     </header>
@@ -90,7 +121,7 @@
       <div class="modal-content">
         <span class="close" onclick="closeModal()" style="color: green;">&times;</span>
         <div class="modal-body">
-          <img id="modal-image" src="" alt="" />
+          <img id="modal-image" src="" alt="" loading="lazy" />
           <div class="modal-text">
             <h2 id="modal-title"></h2>
             <div class="stars" id="modal-rating"></div>
@@ -128,13 +159,34 @@
       </div>
     </footer>
 
-  </div>
+    <!-- ✅ Cookie Consent Banner -->
+    <div id="cookie-consent" style="position: fixed; bottom: 0; left: 0; width: 100%; background: #222; color: white; padding: 1em; text-align: center; z-index: 1000;">
+      We use cookies to improve your experience and show relevant ads. By using our site, you agree to our
+      <a href="#" style="color: #4ae;">Privacy Policy</a>.
+      <button onclick="acceptCookies()" style="margin-left: 1em; padding: 0.5em 1em;">Accept</button>
+    </div>
 
-  <!-- Optional: Trigger after 10 seconds -->
-  <script>
-    window.addEventListener("DOMContentLoaded", () => {
-      setTimeout(triggerPopAd, 10000);
-    });
-  </script>
+    <!-- ✅ Cookie Consent Script -->
+    <script>
+      function acceptCookies() {
+        localStorage.setItem("cookiesAccepted", "true");
+        document.getElementById("cookie-consent").style.display = "none";
+      }
+
+      window.addEventListener("DOMContentLoaded", () => {
+        if (localStorage.getItem("cookiesAccepted") === "true") {
+          document.getElementById("cookie-consent").style.display = "none";
+        }
+      });
+    </script>
+
+    <!-- Optional: Trigger after 10 seconds -->
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        setTimeout(triggerPopAd, 10000);
+      });
+    </script>
+
+  </div>
 </body>
 </html>
